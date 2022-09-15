@@ -25,7 +25,6 @@ function Post ( props ) {
             {post && post.map( ( post, idx ) => {
                 return (
                     <div className="post-class" style={{ justifyContent: 'center', margin: '1rem' }} key={idx}>
-                        <img src={post.img} alt={post.title} style={{ width: "15rem" }} />
                         <div className="card-body">
                             <h1 className="card-title">{post.postTitle}</h1>
                             <p className="card-text">{post.postContent}</p>
