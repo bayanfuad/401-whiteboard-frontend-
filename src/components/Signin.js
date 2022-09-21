@@ -1,6 +1,6 @@
 import axios from "axios";
 import base64 from "base-64";
-
+import  cookies  from "react-cookies";
 
 function Signin() {
     const handleSubmit = async (e) => {
@@ -20,7 +20,8 @@ function Signin() {
             }
         ).then ( (res) => {
             if (res.status === 200) {
-                localStorage.setItem('token', true);
+                cookies.save('token', res.data.token);
+                cookies.save('user_id', res.data.user.id);
                 window.location.href = '/posts';
             }
         } ).catch( (err) => {
