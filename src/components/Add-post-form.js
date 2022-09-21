@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-
+import  cookies  from "react-cookies";
 
 function AddPostForm ( props ) {
     const handleSubmit = async ( e ) => {
@@ -36,8 +36,9 @@ function AddPostForm ( props ) {
                     </div>
                 </form>
                 <button className="signout" onClick={() => {
-                    localStorage.clear();
-                    window.location.reload();
+                    cookies.remove('token');
+                    cookies.remove('user_id');
+                    window.location.href = '/';
                 }}>Sign out</button>
             </div>
         </>

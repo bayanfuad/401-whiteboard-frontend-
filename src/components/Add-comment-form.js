@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from 'react';
-
+import  cookies  from "react-cookies";
 
 function AddCommentForm ( props ) {
     const handleSubmit = async ( e ) => {
@@ -9,7 +9,7 @@ function AddCommentForm ( props ) {
             'content': e.target.content.value,
         };
         await axios.post(
-            `https://white-board-back.herokuapp.com/comment/${props.postId}`,
+            `https://white-board-back.herokuapp.com/comment/${props.postId}/${cookies.load( 'user_id' )}`,
             comment
         ).then( () => {
             props.getData();
